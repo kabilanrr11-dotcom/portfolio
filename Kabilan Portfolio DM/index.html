@@ -628,6 +628,64 @@
     .topbar, .contact { background: var(--bg) !important; color: var(--ink) !important; }
     section { page-break-inside: avoid; padding: 40px 0; }
   }
+
+  @media screen and (max-width: 768px) {
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .hero-portrait {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    order: -1;
+  }
+
+  h1 {
+    font-size: 52px;
+    line-height: 1.1;
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .topbar-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col {
+    display: block;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 </style>
 </head>
 <body>
