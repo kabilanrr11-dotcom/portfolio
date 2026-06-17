@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kabilan R R | Digital Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f5f1ea;
+    --bg-alt: #ebe4d6;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --muted: #8a8275;
+    --accent: #c14a1b;
+    --accent-soft: #e8a37a;
+    --line: #d8cfbd;
+    --card: #fbf8f2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .display { font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.02em; }
+  .italic { font-style: italic; }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* === Top Bar === */
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    background: var(--bg);
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(8px);
+  }
+  .topbar-inner {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .logo .dot { color: var(--accent); }
+  .nav { display: flex; gap: 28px; }
+  .nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav a:hover { color: var(--accent); }
+  @media (max-width: 720px) { .nav { display: none; } }
+
+  /* === Hero === */
+  .hero { padding: 100px 0 80px; position: relative; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+  .eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+  }
+  .hero h1 .accent-word {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 24px 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .meta-item .label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .meta-item .value {
+    font-size: 15px; font-weight: 600; color: var(--ink);
+  }
+
+  .hero-portrait {
+    width: 450px;
+    height: 450px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent);
+    box-shadow: 0 15px 35px rgba(193,74,27,0.25);
+    position: relative;
+    margin: 0 auto;
+    margin-top: -200px;
+    background: var(--bg-alt);
+    transition: all 0.4s ease;
+}
+
+.hero-portrait:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(193,74,27,0.35);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+  /*****.hero-portrait::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(193, 74, 27, 0.15), transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(232, 163, 122, 0.2), transparent 50%);
+  }
+*****/
+  .portrait-initials {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Fraunces', serif;
+    font-size: 140px; font-weight: 400; font-style: italic;
+    color: var(--accent);
+    opacity: 0.85;
+  }
+  .portrait-label {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    display: flex; justify-content: space-between;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--ink-soft);
+  }
+
+  /* === Section structure === */
+  section { padding: 80px 0; }
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .section-head h2 .num {
+    font-size: 0.6em;
+    color: var(--muted);
+    font-style: italic;
+    margin-right: 16px;
+    vertical-align: super;
+  }
+  .section-head .head-meta {
+    font-size: 13px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.15em;
+  }
+  @media (max-width: 600px) {
+    .section-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+
+  /* === About === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+  }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .about-side {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+  .about-main p {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .about-main p:last-of-type { margin-bottom: 32px; }
+  .about-main p .italic { color: var(--accent); }
+
+  .quick-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    padding-top: 32px; border-top: 1px solid var(--line);
+  }
+  @media (max-width: 600px) { .quick-stats { grid-template-columns: 1fr; gap: 16px; } }
+  .stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 44px; font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat .lbl {
+    font-size: 13px; color: var(--ink-soft);
+  }
+
+  /* === Skills === */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  @media (max-width: 720px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-card {
+    padding: 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--card);
+    transition: background 0.3s;
+  }
+  .skill-card:hover { background: var(--bg-alt); }
+  .skill-card .skill-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .skill-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .skill-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+  .skill-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .skill-tags span {
+    font-size: 12px;
+    padding: 5px 12px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-tags span:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(193, 74, 27, 0.3);
+}
+
+  /* === Projects === */
+  .projects { padding-top: 40px; }
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .project-visual {
+    min-width:300px;
+  }
+  .project:first-child { padding-top: 0; }
+  .project:last-child { border-bottom: none; }
+  @media (max-width: 880px) { .project { grid-template-columns: 1fr; gap: 32px; } }
+
+  .project-visual {
+    aspect-ratio: 4/3;
+    
+    background: var(--bg-alt);
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+  }
+  .project-visual .icon {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 60px;
+    color: var(--accent);
+    opacity: 0.85;
+    text-align: center;
+  }
+  .project-visual .mini-chart {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    height: 40px;
+    display: flex; align-items: flex-end; gap: 4px;
+  }
+  .project-visual .bar {
+    flex: 1;
+    background: var(--accent);
+    opacity: 0.7;
+    border-radius: 2px 2px 0 0;
+  }
+  .project-visual .corner-tag {
+    position: absolute; top: 16px; left: 16px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    background: var(--bg);
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+  }
+
+  .project-content .project-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .project-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    line-height: 1.1;
+  }
+  .project-content .role {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .project-content > p {
+    font-size: 15px; color: var(--ink-soft);
+    margin-bottom: 22px;
+    line-height: 1.7;
+  }
+
+  .project-block {
+    margin-bottom: 18px;
+  }
+  .project-block .blk-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .project-block .blk-text {
+    font-size: 15px; color: var(--ink);
+  }
+
+  .project-results {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--bg-alt);
+    border-radius: 4px;
+  }
+  @media (max-width: 500px) { .project-results { grid-template-columns: 1fr; } }
+  .result .r-num {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .result .r-lbl {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+
+  .project-tools {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tools span {
+    font-size: 12px;
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-tools span:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(193,74,27,0.25);
+}
+
+  /* === Certifications & Tools === */
+  .two-col {
+    display: block;
+  }
+
+  .col {
+    margin-bottom: 40px;
+  }
+  @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+
+  .col h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .cert-list { list-style: none; }
+  .cert-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px;
+  }
+  .cert-list li:last-child { border-bottom: none; }
+  .cert-name { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  .cert-issuer { font-size: 13px; color: var(--ink-soft); }
+  .cert-date {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .tools-cloud {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .tools-cloud span {
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tools-cloud span:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.resume-btn{
+    display:inline-block;
+    background:#c14a1b;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    margin-bottom:30px;
+    border-radius:5px;
+    transition:all 0.3s ease;
+}
+
+.resume-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 12px 25px rgba(193,74,27,0.35);
+}
+
+  /* === Education === */
+  .edu-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+  }
+  .edu-item:last-child { border-bottom: none; }
+  @media (max-width: 600px) { .edu-item { grid-template-columns: 1fr; gap: 8px; } }
+  .edu-year {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+  }
+  .edu-detail h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .edu-detail .inst {
+    font-size: 14px; color: var(--ink-soft); margin-bottom: 8px;
+  }
+  .edu-detail p { font-size: 14px; color: var(--ink-soft); }
+
+  /* === Contact / Footer === */
+  .contact {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 100px 0 60px;
+    margin-top: 80px;
+  }
+  .contact .section-head { border-bottom-color: rgba(255,255,255,0.15); }
+  .contact .section-head h2 { color: var(--bg); }
+  .contact .section-head h2 .num { color: rgba(245,241,234,0.4); }
+  .contact .section-head .head-meta { color: rgba(245,241,234,0.5); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+  @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .contact h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .contact h3 .italic { color: var(--accent-soft); }
+  .contact-email {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    color: var(--accent-soft);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+  }
+
+  .contact-info {
+    display: grid; gap: 18px;
+  }
+  .info-row .lbl {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    color: rgba(245,241,234,0.5);
+    margin-bottom: 4px;
+  }
+  .info-row .val {
+    font-size: 15px;
+    color: var(--bg);
+  }
+  .info-row .val a { color: var(--accent-soft); text-decoration: none; }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: rgba(245,241,234,0.5);
+  }
+  @media (max-width: 600px) {
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+
+  /* === Animations === */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero-tagline, .hero-meta, .hero-portrait,
+  .eyebrow {
+    animation: fadeUp 0.8s ease-out backwards;
+  }
+  .eyebrow { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.2s; }
+  .hero-tagline { animation-delay: 0.4s; }
+  .hero-meta { animation-delay: 0.5s; }
+  .hero-portrait { animation-delay: 0.3s; }
+
+  @media print {
+    .topbar, .contact { background: var(--bg) !important; color: var(--ink) !important; }
+    section { page-break-inside: avoid; padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- === TOP NAV === -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="logo">Kabilan R R<span class="dot">.</span></div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- === HERO === -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <h1>
+          Hi, I'm Kabilan —<br />
+          a <span class="accent-word">Digital Marketing</span><br />
+          Specialist.
+        </h1>
+        <p class="hero-tagline">
+          I help businesses grow online through SEO, Social Media Marketing, Google Ads, Content Marketing, Email Marketing and Analytics.
+        </p>
+        <a href="Kabilan resume DM.pdf.pdf" class="resume-btn">
+          Download Resume
+        </a>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="label">Based in</div>
+            <div class="value">Madurai, Tamil Nadu, India</div>
+          </div>
+          <div class="meta-item">
+            <div class="label">Status</div>
+            <div class="value">Open to opportunities</div>
+          </div>
+          <div class="meta-item">
+            <div class="label">Specialties</div>
+            <div class="value">SEO · Social Media · Content Marketing</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-portrait">
+      <img src="images/kabilan.jpg" alt="Kabilan" 
+           class="profile-img">
+      </div>
+        <div class="portrait-label">
+          <span>Portfolio</span>
+          <span>Vol. 01</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === ABOUT === -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">01</span>About me</h2>
+      <div class="head-meta">A short introduction</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-side">A brief on who I am, what I do, and what I care about.</div>
+      <div class="about-main">
+        <p>
+          I'm Kabilan RR, an Electronics and Communication Engineering graduate with a strong interest in Digital Marketing, SEO, Social Media Marketing and Analytics.
+        </p>
+        
+        <p>
+          I have hands-on experience in creating SEO-friendly websites, keyword research, content optimization, Google Analytics 4, Google Tag Manager, Meta Ads, and social media marketing strategies.
+        </p>
+        
+        <p>
+          My goal is to build impactful digital campaigns, improve online visibility for businesses, and continuously learn emerging marketing technologies.
+        </p>
+
+        <div class="quick-stats">
+          <div class="stat">
+            <div class="num">10+</div>
+            <div class="lbl">Digital Marketing Projects</div>
+          </div>
+          <div class="stat">
+            <div class="num">15+</div>
+            <div class="lbl">Digital Marketing Skills</div>
+          </div>
+          <div class="stat">
+            <div class="num">5+</div>
+            <div class="lbl">Marketing Tools Learned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === SKILLS === -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">02</span>Skills</h2>
+      <div class="head-meta">What I've trained in</div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <span class="skill-num">i.</span>
+        <h3>Search Engine Optimization</h3>
+        <p>On-page, off-page, and technical SEO. Keyword research, content optimization, backlink strategy, site audits, and Core Web Vitals.</p>
+        <div class="skill-tags">
+          <span>Keyword Research</span>
+          <span>On-Page SEO</span>
+          <span>Simplified SEO</span>
+          <span>BackLink Building</span>
+          <span>Site Audits</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-num">ii.</span>
+        <h3>Paid Advertising (SEM)</h3>
+        <p>Google Ads (Search, Display, Shopping, YouTube) and Meta Ads campaign setup, audience targeting, bidding strategies, and ROAS optimization.</p>
+        <div class="skill-tags">
+          <span>Google Ads</span>
+          <span>Meta Ads</span>
+          <span>Bid Strategy</span>
+          <span>Retargeting</span>
+          <span>Keyword Planner</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-num">iii.</span>
+        <h3>Social Media Marketing</h3>
+        <p>Organic strategy for Instagram, LinkedIn, Facebook, and X. Content calendars, community management, hashtag research, and influencer outreach.</p>
+        <div class="skill-tags">
+          <span>Instagram</span>
+          <span>LinkedIn</span>
+          <span>Content Calendar</span>
+          <span>Community Mgmt</span>
+          <span>Meta Business Suite</span>
+
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-num">iv.</span>
+        <h3>Content Marketing & Copywriting</h3>
+        <p>Blog writing, SEO content briefs, ad copy, landing-page copy, email sequences, and short-form social copy that converts.</p>
+        <div class="skill-tags">
+          <span>Blog Writing</span>
+          <span>Ad Copy</span>
+          <span>Email Copy</span>
+          <span>Storytelling</span>
+          <span>SEO Content</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-num">v.</span>
+        <h3>Email Marketing & Automation</h3>
+        <p>List building, segmentation, campaign creation, newsletter design, A/B testing subject lines, and lifecycle automation.</p>
+        <div class="skill-tags">
+          <span>Mailchimp</span>
+          <span>Campaign Creation</span>
+          <span>A/B Testing</span>
+          <span>Segmentation</span>
+          <span>HubSpot</span>
+
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-num">vi.</span>
+        <h3>Analytics & Reporting</h3>
+        <p>GA4, Google Search Console, Meta Pixel, conversion tracking, funnel analysis, and building dashboards in Looker Studio.</p>
+        <div class="skill-tags">
+          <span>GA4</span>
+          <span>Search Console</span>
+          <span>Looker Studio</span>
+          <span>Conversion Tracking</span>
+          <span>Meta Pixel</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- === PROJECTS === -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">03</span>Selected projects</h2>
+      <div class="head-meta">Real work, real results</div>
+    </div>
+
+    <div class="projects">
+
+      <!-- Project 1 -->
+      <div class="project">
+        <div class="project-visual">
+          <span class="corner-tag">Technical SEO</span>
+          <span class="icon">SEO</span>
+          <div class="mini-chart">
+            <div class="bar" style="height: 30%"></div>
+            <div class="bar" style="height: 45%"></div>
+            <div class="bar" style="height: 38%"></div>
+            <div class="bar" style="height: 60%"></div>
+            <div class="bar" style="height: 72%"></div>
+            <div class="bar" style="height: 85%"></div>
+            <div class="bar" style="height: 95%"></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-num">Project 01</span>
+          <h3>SEO Website Audit Project</h3>
+          <div class="role">Role: SEO Analyst · Duration: 1 week</div>
+          <p>Performed a complete SEO audit on a website to identify technical SEO issues and optimization opportunities.</p>
+
+          <div class="project-block">
+            <div class="blk-label">Challenge</div>
+            <div class="blk-text">Finding technical issues affecting search engine visibility.</div>
+          </div>
+          <div class="project-block">
+            <div class="blk-label">Approach</div>
+            <div class="blk-text">Analyzed website speed, mobile responsiveness, meta tags, sitemap structure, URL hierarchy, HTTPS implementation, and internal linking.</div>
+          </div>
+
+          <div class="project-results">
+            <div class="result">
+              <div class="r-num">20+</div>
+              <div class="r-lbl">SEO Factors Audited</div>
+            </div>
+            <div class="result">
+              <div class="r-num">10+</div>
+              <div class="r-lbl">Technical Issues Identified</div>
+            </div>
+            <div class="result">
+              <div class="r-num">5</div>
+              <div class="r-lbl">Core Web Vital Analyzed</div>
+            </div>
+          </div>
+
+          <div class="project-tools">
+            <span>Google Search Console</span>
+            <span>PageSpeed Insights</span>
+            <span>GA4</span>
+            <span>SEO Audit Tools</span>
+            <span>Simplified SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <div class="project-visual">
+          <span class="corner-tag">Google Ads</span>
+          <span class="icon">Ads</span>
+          <div class="mini-chart">
+            <div class="bar" style="height: 50%; opacity:0.4"></div>
+            <div class="bar" style="height: 65%; opacity:0.5"></div>
+            <div class="bar" style="height: 80%; opacity:0.6"></div>
+            <div class="bar" style="height: 90%; opacity:0.8"></div>
+            <div class="bar" style="height: 70%; opacity:0.6"></div>
+            <div class="bar" style="height: 85%; opacity:0.7"></div>
+            <div class="bar" style="height: 95%; opacity:0.85"></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-num">Project 02</span>
+          <h3>Google Ads Campaign Planning & Keyword Research</h3>
+          <div class="role">Role: Digital Marketing Learner • Duration: 1 Week</div>
+          <p>Created a Google Ads campaign strategy by performing keyword research, audience targeting, ad copy creation, and campaign planning for a sample business.</p>
+
+          <div class="project-block">
+            <div class="blk-label">Challenge</div>
+            <div class="blk-text">Understanding how to create effective ad campaigns that maximize visibility and conversions.</div>
+          </div>
+          <div class="project-block">
+            <div class="blk-label">Approach</div>
+            <div class="blk-text">Researched keywords using Google Keyword Planner, analyzed competitors, prepared ad copies, identified target audiences, and structured campaign groups.</div>
+            </div>
+
+          <div class="project-results">
+            <div class="result">
+              <div class="r-num">50+</div>
+              <div class="r-lbl">Keywords Researched</div>
+            </div>
+            <div class="result">
+              <div class="r-num">12+</div>
+              <div class="r-lbl">Ad Copies Created</div>
+            </div>
+            <div class="result">
+              <div class="r-num">5</div>
+              <div class="r-lbl">Audience Segments Created</div>
+            </div>
+          </div>
+
+          <div class="project-tools">
+            <span>Google Ads</span>
+            <span>Keyword Planner</span>
+            <span>Google Trends</span>
+            <span>SEMrush</span>
+            <span>Ahrefs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project">
+        <div class="project-visual">
+          <span class="corner-tag">Social Media</span>
+          <span class="icon">Social</span>
+          <div class="mini-chart">
+            <div class="bar" style="height: 20%"></div>
+            <div class="bar" style="height: 30%"></div>
+            <div class="bar" style="height: 40%"></div>
+            <div class="bar" style="height: 50%"></div>
+            <div class="bar" style="height: 60%"></div>
+            <div class="bar" style="height: 70%"></div>
+            <div class="bar" style="height: 80%"></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-num">Project 03</span>
+          <h3>Social Media Content Strategy Project</h3>
+          <div class="role">Role: Social Media Marketer • Duration: 1 Week</div>
+          <p>Developed a social media content strategy focusing on content planning, audience engagement, hashtag research, and performance analysis.</p>
+
+          <div class="project-block">
+            <div class="blk-label">Challenge</div>
+            <div class="blk-text">Creating engaging content ideas that improve reach and brand awareness.</div>
+          </div>
+          <div class="project-block">
+            <div class="blk-label">Approach</div>
+            <div class="blk-text">Prepared content calendars, researched trending hashtags, analyzed competitors, and planned audience-targeted posts.</div>
+          </div>
+
+          <div class="project-results">
+            <div class="result">
+              <div class="r-num">30+</div>
+              <div class="r-lbl">Content Ideas Created</div>
+            </div>
+            <div class="result">
+              <div class="r-num">20+</div>
+              <div class="r-lbl">Hashtags Researched</div>
+            </div>
+            <div class="result">
+              <div class="r-num">4</div>
+              <div class="r-lbl">Content Pillars Defined</div>
+            </div>
+          </div>
+
+          <div class="project-tools">
+            <span>Instagram</span>
+            <span>Facebook</span>
+            <span>Canva</span>
+            <span>ChatGPT</span>
+            <span>Meta Business Suite</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project">
+        <div class="project-visual">
+          <span class="corner-tag">Email Marketing</span>
+          <span class="icon">Email</span>
+          <div class="mini-chart">
+            <div class="bar" style="height: 40%; opacity:0.5"></div>
+            <div class="bar" style="height: 55%; opacity:0.6"></div>
+            <div class="bar" style="height: 50%; opacity:0.55"></div>
+            <div class="bar" style="height: 70%; opacity:0.7"></div>
+            <div class="bar" style="height: 65%; opacity:0.65"></div>
+            <div class="bar" style="height: 85%; opacity:0.85"></div>
+            <div class="bar" style="height: 90%; opacity:0.9"></div>
+          </div>
+        </div>
+        <div class="project-content">
+          <span class="project-num">Project 04</span>
+          <h3>Email Marketing & Automation Project</h3>
+          <div class="role">Role: Email Marketing Learner • Duration: 1 Week</div>
+          <p>Designed an email marketing workflow including subscriber segmentation, email sequence planning, and campaign performance analysis.</p>
+
+          <div class="project-block">
+            <div class="blk-label">Challenge</div>
+            <div class="blk-text">Understanding how email marketing nurtures leads and improves customer engagement.</div>
+          </div>
+          <div class="project-block">
+            <div class="blk-label">Approach</div>
+            <div class="blk-text">Created welcome email sequences, planned newsletter content, studied A/B testing methods, and designed customer journey workflows.</div>
+          </div>
+
+          <div class="project-results">
+            <div class="result">
+              <div class="r-num">5+</div>
+              <div class="r-lbl">Email Sequences Planned</div>
+            </div>
+            <div class="result">
+              <div class="r-num">10+</div>
+              <div class="r-lbl">Email Templates Created</div>
+            </div>
+            <div class="result">
+              <div class="r-num">3</div>
+              <div class="r-lbl">Customer Journeys Designed</div>
+            </div>
+          </div>
+
+          <div class="project-tools">
+            <span>Mailchimp</span>
+            <span>Hubspot</span>
+            <span>Canva</span>
+            <span>ChatGPT</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- === CERTIFICATIONS & TOOLS === -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">04</span>Credentials &amp; Toolkit</h2>
+      <div class="head-meta">Certifications and software</div>
+    </div>
+    <div class="two-col">
+
+      <div class="col">
+        <h3>Certifications</h3>
+        <ul class="cert-list">
+          <li>
+            <div>
+              <div class="cert-name">Google Ads Search Certification</div>
+              <div class="cert-issuer">Google Skillshop</div>
+            </div>
+            <div class="cert-date">2026</div>
+          </li>
+          <li>
+            <div>
+              <div class="cert-name">Google Analytics (GA4) Certification</div>
+              <div class="cert-issuer">Google Skillshop</div>
+            </div>
+            <div class="cert-date">2026</div>
+          </li>
+          <li>
+            <div>
+              <div class="cert-name">HubSpot Inbound Marketing</div>
+              <div class="cert-issuer">HubSpot Academy</div>
+            </div>
+            <div class="cert-date">2026</div>
+          </li>
+          <li>
+            <div>
+              <div class="cert-name">SEMrush SEO Fundamentals</div>
+              <div class="cert-issuer">SEMrush Academy</div>
+            </div>
+            <div class="cert-date">2026</div>
+          </li>
+          <li>
+            <div>
+              <div class="cert-name">Advanced Digital Marketing Programme</div>
+              <div class="cert-issuer">Innovel</div>
+            </div>
+            <div class="cert-date">2026</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Tools I work with</h3>
+        <div class="tools-cloud">
+          <span>Google Ads</span>
+          <span>Google Analytics 4 (GA4)</span>
+          <span>Google Search Console</span>
+          <span>Google Tag Manager</span>
+          <span>Keyword Planner</span>
+          <span>Google Trends</span>
+          <span>SEMrush</span>
+          <span>Screaming Frog</span>
+          <span>PageSpeed Insights</span>
+          <span>Meta Ads Manager</span>
+          <span>Meta Business Suite</span>
+          <span>Looker Studio</span>
+          <span>WordPress</span>
+          <span>Yoast SEO</span>
+          <span>Canva</span>
+          <span>CapCut</span>
+          <span>ChatGPT</span>
+          <span>VS Code</span>
+        </div>
+
+        <h3 style="margin-top: 48px;">Education</h3>
+        <div class="edu-item">
+          <div class="edu-year">2022–2025</div>
+          <div class="edu-detail">
+            <h4>B.E Electronics & Communication Engineering</h4>
+            <div class="inst">PSNA College of Engineering and Technology, Dindigul</div>
+            <p>CGPA: 7.77 / 10 · Final-year project on Prostate Cancer Classification.</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2026</div>
+          <div class="edu-detail">
+            <h4>Advanced Digital Marketing Course</h4>
+            <div class="inst">Innovel</div>
+            <p>5-month intensive programme covering SEO, SEM, social, content, email, and analytics with live projects.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- === CONTACT === -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">05</span>Get in touch</h2>
+      <div class="head-meta">Let's build something great</div>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <h3>Looking for a digital marketer who can <span class="italic">learn fast and deliver?</span></h3>
+        <a class="contact-email" href="mailto:kabilanrr11@gmail.com">kabilanrr11@gmail.com</a>
+      </div>
+      <div class="contact-info">
+        <div class="info-row">
+          <div class="lbl">Phone</div>
+          <div class="val">+91 86678 16796</div>
+        </div>
+        <div class="info-row">
+          <div class="lbl">LinkedIn</div>
+          <div class="val"><a href="https://www.linkedin.com/in/kabilanrr?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">linkedin.com/in/kabilanrr</a></div>
+        </div>
+        <div class="info-row">
+          <div class="lbl">Portfolio site</div>
+          <div class="val"><a href="#">kabilanrr.work</a></div>
+        </div>
+        <div class="info-row">
+          <div class="lbl">Location</div>
+          <div class="val">Madurai, Tamil Nadu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Kabilan R R. All rights reserved.</div>
+      <div>Crafted with intent · Updated June 2026</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
